@@ -1,0 +1,29 @@
+import { Header } from '../components/Sections/Header';
+import { Hero } from '../components/Sections/Hero';
+import { About } from '../components/Sections/About';
+import { Services } from '../components/Sections/Services';
+import { Portfolio } from '../components/Sections/Portfolio';
+import { Testimonials } from '../components/Sections/Testimonials';
+import { Contact } from '../components/Sections/Contact';
+import { Footer } from '../components/Sections/Footer';
+import { Toaster } from '../components/common/feedback/sonner';
+
+export default function HomePage() {
+    return (
+        <div className="min-h-screen bg-white relative">
+            <div className="relative z-10">
+                <Header />
+                <main>
+                    <Hero />
+                    <About />
+                    <Services />
+                    <Portfolio />
+                    <Testimonials />
+                    <Contact />
+                </main>
+                <Footer />
+                <Toaster position="top-right" richColors />
+            </div>
+        </div>
+    );
+}
