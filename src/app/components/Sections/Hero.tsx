@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight, Play, Star } from 'lucide-react';
+import { ArrowRight, Star } from 'lucide-react';
 import Image from 'next/image';
 
 export function Hero() {

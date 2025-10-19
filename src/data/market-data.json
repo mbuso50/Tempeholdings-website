@@ -2,71 +2,27 @@
     "reviews": [
         {
             "id": 1,
-            "business": "Tempe Holdings",
+            "business": "Tech Solutions Inc",
             "rating": 5,
-            "author": "Thabo M.",
-            "date": "18 October 2025 at 2:30pm",
-            "title": "Exceptional Township Market Insights",
-            "content": "Tempe Holdings provided invaluable insights into the R900 billion township market. Their local expertise helped us connect authentically with our target audience.",
-            "category": "Marketing Solutions"
-        },
-        {
-            "id": 2,
-            "business": "Soweto Retail Hub",
-            "rating": 4,
-            "author": "Lerato K.",
-            "date": "17 October 2025 at 4:15pm",
-            "title": "Great shopping experience",
-            "content": "Clean, safe, and well-organized retail space with good variety of stores.",
-            "category": "Retail"
-        },
-        {
-            "id": 3,
-            "business": "Jozi Auto Group",
-            "rating": 5,
-            "author": "Sipho D.",
-            "date": "16 October 2025 at 11:20am",
-            "title": "Professional service",
-            "content": "Quick and efficient car service with fair pricing. Will definitely return.",
-            "category": "Automotive"
+            "author": "John Doe",
+            "date": "2024-01-15",
+            "title": "Excellent Service",
+            "content": "Great company with amazing customer service.",
+            "category": "Technology"
         }
     ],
     "businesses": [
         {
             "id": 1,
-            "name": "Tempe Holdings",
-            "category": "Marketing Solutions",
-            "rating": 4.9,
-            "reviews": 200,
-            "trustIndex": 10.0,
+            "name": "Tech Solutions Inc",
+            "category": "Technology",
+            "rating": 4.8,
+            "reviews": 24,
+            "trustIndex": 95,
             "rank": 1,
-            "logo": "/12.JPG",
-            "description": "Leading township marketing experts since 2012",
-            "recommend": "Very Likely"
-        },
-        {
-            "id": 2,
-            "name": "Soweto Retail Hub",
-            "category": "Retail",
-            "rating": 4.7,
-            "reviews": 156,
-            "trustIndex": 9.8,
-            "rank": 2,
-            "logo": "/21.JPG",
-            "description": "Premier shopping destination in Soweto",
-            "recommend": "Very Likely"
-        },
-        {
-            "id": 3,
-            "name": "Jozi Auto Group",
-            "category": "Automotive",
-            "rating": 4.5,
-            "reviews": 89,
-            "trustIndex": 9.5,
-            "rank": 3,
-            "logo": "/123.JPG",
-            "description": "Trusted automotive services",
-            "recommend": "Likely"
+            "logo": "/logos/tech-solutions.png",
+            "description": "Leading technology solutions provider",
+            "recommend": "Highly recommended for IT services"
         }
     ]
 }

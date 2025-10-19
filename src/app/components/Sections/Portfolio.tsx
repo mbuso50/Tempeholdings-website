@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from 'react';
-import { ExternalLink, TrendingUp, Users, Monitor, Video, Star } from 'lucide-react';
+import { TrendingUp, Users, Monitor, Video, Star } from 'lucide-react';
 import Image from 'next/image';
 
 export function Portfolio() {
@@ -13,7 +13,7 @@ export function Portfolio() {
     title: 'Lemofe Holdings - From Designer to Digital Enterprise',
     category: 'Digital Transformation',
     result: 'Business Growth',
-    image: '/ea.jpg', // Using your local business handshake image
+    image: '/ea.jpg',
     description: 'Transforming a solo graphic design service into a comprehensive digital solutions provider',
     achievements: [
       { icon: Monitor, text: 'Internet Café Services' },
