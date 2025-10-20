@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from 'react';
-import { MapPin, Phone, Mail, Clock, Send, CheckCircle } from 'lucide-react';
+import { Phone, Mail, Send, CheckCircle } from 'lucide-react';
 
 export function Contact() {
   const [formData, setFormData] = useState({
@@ -18,23 +18,38 @@ export function Contact() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1500));
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
 
-    // In a real app, you would use toast here
-    console.log('Form submitted successfully!');
-    alert('Message sent successfully! We\'ll get back to you within 24 hours.');
+      const result = await response.json();
 
-    // Reset form
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      company: '',
-      service: '',
-      message: '',
-    });
-    setIsSubmitting(false);
+      if (!response.ok) {
+        throw new Error(result.error || 'Failed to send message');
+      }
+
+      alert('Message sent successfully! We\'ll get back to you within 24 hours.');
+
+      // Reset form
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        company: '',
+        service: '',
+        message: '',
+      });
+    } catch (error) {
+      console.error('Error:', error);
+      alert(error instanceof Error ? error.message : 'Failed to send message. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -46,12 +61,6 @@ export function Contact() {
 
   const contactInfo = [
     {
-      icon: MapPin,
-      title: 'Visit Us',
-      details: ['Soweto, Johannesburg', 'South Africa, 1804'],
-      color: 'from-blue-500 to-blue-700',
-    },
-    {
       icon: Phone,
       title: 'Call Us',
       details: ['+27 73 032 1269', '+27 76 107 7556'],
@@ -60,14 +69,8 @@ export function Contact() {
     {
       icon: Mail,
       title: 'Email Us',
-      details: ['tempeholdings@gmail.com', 'info@tempoholdings.co.za'],
+      details: ['tempeholdings@gmail.com', 'info@tempeholdings.co.za'],
       color: 'from-purple-500 to-purple-700',
-    },
-    {
-      icon: Clock,
-      title: 'Working Hours',
-      details: ['Mon - Fri: 8AM - 6PM', 'Sat: 9AM - 2PM'],
-      color: 'from-orange-500 to-orange-700',
     },
   ];
 
@@ -84,11 +87,9 @@ export function Contact() {
 
   return (
     <section id="contact" className="py-24 bg-gray-50 relative overflow-hidden">
-      {/* Background Elements */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-blue-100 rounded-full filter blur-3xl opacity-30"></div>
 
       <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
-        {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <span className="bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm">
             Get In Touch
@@ -102,7 +103,6 @@ export function Contact() {
         </div>
 
         <div className="grid lg:grid-cols-5 gap-12">
-          {/* Contact Form - Takes up 3 columns */}
           <div className="lg:col-span-3">
             <div className="bg-white rounded-3xl p-8 lg:p-12 shadow-xl border border-gray-100">
               <h3 className="text-gray-900 mb-8 font-semibold text-xl">Send Us a Message</h3>
@@ -231,7 +231,6 @@ export function Contact() {
             </div>
           </div>
 
-          {/* Contact Info - Takes up 2 columns */}
           <div className="lg:col-span-2 space-y-6">
             {contactInfo.map((info, index) => (
               <div
@@ -254,9 +253,8 @@ export function Contact() {
               </div>
             ))}
 
-            {/* Why Choose Us */}
             <div className="bg-gradient-to-br from-blue-600 to-indigo-700 rounded-3xl p-8 text-white">
-              <h4 className="mb-6 font-semibold text-lg">Why Choose Tempo Holdings?</h4>
+              <h4 className="mb-6 font-semibold text-lg">Why Choose Tempe Holdings?</h4>
               <div className="space-y-4">
                 {[
                   'Free initial consultation',

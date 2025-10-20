@@ -26,7 +26,7 @@ export function Header() {
   };
 
   const navigateToMarketReviews = () => {
-    router.push('/market-reviews'); // Fixed route path
+    router.push('/market-reviews');
     setIsMobileMenuOpen(false);
   };
 

@@ -161,7 +161,7 @@ export function Portfolio() {
           <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
             <div className="text-4xl text-blue-500 mb-4">&quot;</div>
             <p className="text-xl text-gray-700 italic mb-6">
-              &quot;Tempo Holdings understood our vision and helped us build more than just a business - they helped us create a legacy. Their strategic approach transformed our single service offering into a diversified digital enterprise.&quot;
+              &quot;Tempe Holdings understood our vision and helped us build more than just a business - they helped us create a legacy. Their strategic approach transformed our single service offering into a diversified digital enterprise.&quot;
             </p>
             <div className="font-semibold text-gray-900">Goitsemang Molefe</div>
             <div className="text-blue-600 text-sm">Founder, Lemofe Holdings Pty (Ltd)</div>

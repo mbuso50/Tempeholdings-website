@@ -1,4 +1,4 @@
-import { Users, Target, TrendingUp, Globe, Building, Heart, BarChart3, Users2 } from 'lucide-react';
+import { Users, TrendingUp, Globe, Building, Heart, BarChart3, Users2 } from 'lucide-react';
 import Image from 'next/image';
 
 export function About() {
@@ -6,7 +6,7 @@ export function About() {
     { icon: Building, title: 'Years Established', value: 'Since 2012' },
     { icon: BarChart3, title: 'Market Value', value: 'R900 Billion' },
     { icon: Users2, title: 'Population Reach', value: '10 Million+' },
-    { icon: Target, title: 'Market Penetration', value: '21%' },
+
   ];
 
   const values = [

@@ -3,7 +3,6 @@ import { Hero } from '../components/Sections/Hero';
 import { About } from '../components/Sections/About';
 import { Services } from '../components/Sections/Services';
 import { Portfolio } from '../components/Sections/Portfolio';
-import { Testimonials } from '../components/Sections/Testimonials';
 import { Contact } from '../components/Sections/Contact';
 import { Footer } from '../components/Sections/Footer';
 import { Toaster } from '../components/common/feedback/sonner';
@@ -18,7 +17,7 @@ export default function HomePage() {
                     <About />
                     <Services />
                     <Portfolio />
-                    <Testimonials />
+
                     <Contact />
                 </main>
                 <Footer />
