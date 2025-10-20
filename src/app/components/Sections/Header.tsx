@@ -1,13 +1,23 @@
 "use client";
 
 import { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
-import { useRouter } from 'next/navigation';
+import { Menu, X, Home } from 'lucide-react';
+import { useRouter, usePathname } from 'next/navigation';
 
-export function Header() {
+interface HeaderProps {
+  // Simple customization
+  disabledButtons?: string[]; // ['services', 'work', 'clients', 'about']
+  textColor?: 'light' | 'dark'; // Control text color when not scrolled
+}
+
+export function Header({
+  disabledButtons = [],
+  textColor = 'light'
+}: HeaderProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const router = useRouter();
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -31,8 +41,49 @@ export function Header() {
   };
 
   const navigateToHomePage = () => {
-    router.push('/home-page');
+    if (pathname === '/home-page') {
+      // Already on home page, scroll to top
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      router.push('/home-page');
+    }
     setIsMobileMenuOpen(false);
+  };
+
+  const navigateToHomeFromMarket = () => {
+    if (pathname.includes('market')) {
+      router.push('/home-page');
+    } else {
+      navigateToHomePage();
+    }
+    setIsMobileMenuOpen(false);
+  };
+
+  const getSectionId = (item: string) => {
+    const sectionMap: { [key: string]: string } = {
+      'Work': 'portfolio',
+      'Clients': 'testimonials',
+      'About': 'about',
+      'Services': 'services'
+    };
+    return sectionMap[item] || item.toLowerCase();
+  };
+
+  const navigationItems = ['About', 'Services', 'Work', 'Clients'].filter(
+    item => !disabledButtons.includes(item.toLowerCase())
+  );
+
+  // Text color handling
+  const getTextColorClass = () => {
+    if (isScrolled) return 'text-gray-700';
+    return textColor === 'light' ? 'text-white' : 'text-gray-900';
+  };
+
+  const getHoverClass = () => {
+    if (isScrolled) {
+      return 'hover:text-blue-600 hover:bg-blue-50';
+    }
+    return 'hover:bg-white/10';
   };
 
   return (
@@ -46,7 +97,7 @@ export function Header() {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <button
-            onClick={navigateToHomePage}
+            onClick={navigateToHomeFromMarket}
             className="group flex items-center space-x-3"
           >
             <div className="relative">
@@ -57,13 +108,12 @@ export function Header() {
             </div>
             <div className="hidden sm:block">
               <div
-                className={`transition-colors font-semibold ${isScrolled ? 'text-gray-900' : 'text-white'
-                  }`}
+                className={`transition-colors font-semibold ${getTextColorClass()}`}
               >
                 Tempe Holdings
               </div>
               <div
-                className={`text-xs transition-colors ${isScrolled ? 'text-blue-600' : 'text-blue-200'
+                className={`text-xs transition-colors ${isScrolled ? 'text-blue-600' : textColor === 'light' ? 'text-blue-200' : 'text-blue-600'
                   }`}
               >
                 Marketing Solutions
@@ -74,15 +124,12 @@ export function Header() {
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-1">
             <button
-              onClick={navigateToHomePage}
-              className={`px-4 py-2 rounded-lg transition-all font-medium ${isScrolled
-                ? 'text-gray-700 hover:text-blue-600 hover:bg-blue-50'
-                : 'text-white hover:bg-white/10'
-                }`}
+              onClick={navigateToHomeFromMarket}
+              className={`px-4 py-2 rounded-lg transition-all font-medium ${getTextColorClass()} ${getHoverClass()}`}
             >
-              Home
+              {pathname.includes('market') ? 'Back to Home' : 'Home'}
             </button>
-            {['About', 'Services', 'Work', 'Clients'].map((item) => (
+            {navigationItems.map((item) => (
               <button
                 key={item}
                 onClick={() =>
@@ -94,10 +141,7 @@ export function Header() {
                         : item.toLowerCase()
                   )
                 }
-                className={`px-4 py-2 rounded-lg transition-all font-medium ${isScrolled
-                  ? 'text-gray-700 hover:text-blue-600 hover:bg-blue-50'
-                  : 'text-white hover:bg-white/10'
-                  }`}
+                className={`px-4 py-2 rounded-lg transition-all font-medium ${getTextColorClass()} ${getHoverClass()}`}
               >
                 {item}
               </button>
@@ -132,8 +176,7 @@ export function Header() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className={`lg:hidden p-2 rounded-lg transition-colors ${isScrolled ? 'text-gray-900' : 'text-white'
-              }`}
+            className={`lg:hidden p-2 rounded-lg transition-colors ${getTextColorClass()}`}
           >
             {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
@@ -144,15 +187,13 @@ export function Header() {
           <nav className="lg:hidden py-6 border-t border-gray-200/20">
             <div className="flex flex-col space-y-1">
               <button
-                onClick={navigateToHomePage}
-                className={`px-4 py-3 text-left rounded-lg transition-all font-medium ${isScrolled
-                  ? 'text-gray-700 hover:bg-blue-50 hover:text-blue-600'
-                  : 'text-white hover:bg-white/10'
-                  }`}
+                onClick={navigateToHomeFromMarket}
+                className={`px-4 py-3 text-left rounded-lg transition-all font-medium flex items-center space-x-2 ${getTextColorClass()} ${getHoverClass()}`}
               >
-                Home
+                <Home size={18} />
+                <span>{pathname.includes('market') ? 'Back to Home' : 'Home'}</span>
               </button>
-              {['About', 'Services', 'Work', 'Clients'].map((item) => (
+              {navigationItems.map((item) => (
                 <button
                   key={item}
                   onClick={() =>
@@ -164,29 +205,20 @@ export function Header() {
                           : item.toLowerCase()
                     )
                   }
-                  className={`px-4 py-3 text-left rounded-lg transition-all font-medium ${isScrolled
-                    ? 'text-gray-700 hover:bg-blue-50 hover:text-blue-600'
-                    : 'text-white hover:bg-white/10'
-                    }`}
+                  className={`px-4 py-3 text-left rounded-lg transition-all font-medium ${getTextColorClass()} ${getHoverClass()}`}
                 >
                   {item}
                 </button>
               ))}
               <button
                 onClick={navigateToMarketReviews}
-                className={`px-4 py-3 text-left rounded-lg transition-all font-medium ${isScrolled
-                  ? 'text-gray-700 hover:bg-blue-50 hover:text-blue-600'
-                  : 'text-white hover:bg-white/10'
-                  }`}
+                className={`px-4 py-3 text-left rounded-lg transition-all font-medium ${getTextColorClass()} ${getHoverClass()}`}
               >
                 Market Intelligence
               </button>
               <button
                 onClick={() => scrollToSection('contact')}
-                className={`px-4 py-3 text-left rounded-lg transition-all font-medium ${isScrolled
-                  ? 'text-gray-700 hover:bg-blue-50 hover:text-blue-600'
-                  : 'text-white hover:bg-white/10'
-                  }`}
+                className={`px-4 py-3 text-left rounded-lg transition-all font-medium ${getTextColorClass()} ${getHoverClass()}`}
               >
                 Contact
               </button>

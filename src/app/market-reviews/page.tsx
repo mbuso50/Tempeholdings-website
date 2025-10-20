@@ -5,7 +5,7 @@ import { Footer } from '../components/Sections/Footer';
 import { Toaster } from '../components/common/feedback/sonner';
 import dynamic from 'next/dynamic';
 
-// Dynamically import the MarketReview component with no SSR
+
 const MarketReview = dynamic(() => import('../components/Sections/market-review'), {
     ssr: false,
     loading: () => (
@@ -20,8 +20,11 @@ const MarketReview = dynamic(() => import('../components/Sections/market-review'
 
 export default function MarketReviewsPage() {
     return (
-        <div className="min-h-screen bg-white">
-            <Header />
+        <div className="min-h-screen bg-gray-400">
+            <Header
+                disabledButtons={['services', 'work', 'clients', 'about', 'market intelligence', "let's talk"]}
+                textColor="dark"
+            />
             <MarketReview />
             <Footer />
             <Toaster position="top-right" richColors />
