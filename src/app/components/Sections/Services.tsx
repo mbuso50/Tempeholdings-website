@@ -11,13 +11,10 @@ import {
   Heart,
   Clock,
   Users2,
-  Smartphone,
-  Megaphone,
   Palette,
-  BarChart3,
+  Megaphone,
   Video,
   Mail,
-  Search,
   Share2,
   ArrowRight
 } from 'lucide-react';
@@ -33,7 +30,7 @@ export function Services() {
       description: 'Strategic messaging that lets people know you have solutions to their problems.',
       features: ['Problem-Solution Mapping', 'Platform Optimization', 'Feature Communication', 'Audience Targeting'],
       color: 'from-blue-500 to-blue-700',
-      principle: 'How to let people know that you have a solution to their problems, choosing the best platforms to communicate through.'
+      principle: 'How to let people know that you have a solution to your problems, choosing the best platforms to communicate through.'
     },
     {
       icon: Users,
@@ -103,13 +100,6 @@ export function Services() {
 
   const marketingServices = [
     {
-      icon: Smartphone,
-      title: 'Digital Strategy',
-      description: 'Comprehensive digital transformation roadmaps tailored to your business goals.',
-      features: ['Market Analysis', 'Competitor Research', 'Growth Planning', 'KPI Setting'],
-      color: 'from-blue-500 to-blue-700',
-    },
-    {
       icon: Palette,
       title: 'Brand Identity',
       description: 'Create memorable brand experiences that resonate with your target audience.',
@@ -124,13 +114,6 @@ export function Services() {
       color: 'from-pink-500 to-pink-700',
     },
     {
-      icon: Search,
-      title: 'SEO & SEM',
-      description: 'Dominate search results and drive qualified traffic to your website.',
-      features: ['Keyword Research', 'On-Page SEO', 'Link Building', 'PPC Campaigns'],
-      color: 'from-green-500 to-green-700',
-    },
-    {
       icon: Video,
       title: 'Content Production',
       description: 'High-quality video and photo content that tells your brand story.',
@@ -143,13 +126,6 @@ export function Services() {
       description: 'Nurture leads and convert customers with targeted email campaigns.',
       features: ['Campaign Design', 'Automation', 'Segmentation', 'A/B Testing'],
       color: 'from-yellow-500 to-yellow-700',
-    },
-    {
-      icon: BarChart3,
-      title: 'Analytics',
-      description: 'Data-driven insights that inform strategy and optimize performance.',
-      features: ['Performance Tracking', 'Custom Reports', 'ROI Analysis', 'Dashboards'],
-      color: 'from-indigo-500 to-indigo-700',
     },
     {
       icon: Megaphone,
@@ -326,7 +302,7 @@ export function Services() {
         {activeTab === 'marketing' && (
           <>
             {/* Marketing Services Grid */}
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
               {marketingServices.map((service, index) => (
                 <div
                   key={index}

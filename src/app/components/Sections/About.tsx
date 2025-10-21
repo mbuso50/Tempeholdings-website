@@ -169,18 +169,7 @@ export function About() {
             <div className="text-blue-600 mb-2 text-2xl font-bold">R900B</div>
             <p className="text-gray-600">Townships Market Value</p>
           </div>
-          <div className="text-center">
-            <div className="text-blue-600 mb-2 text-2xl font-bold">21%</div>
-            <p className="text-gray-600">Population Penetration</p>
-          </div>
-          <div className="text-center">
-            <div className="text-blue-600 mb-2 text-2xl font-bold">76%</div>
-            <p className="text-gray-600">Loyalty Program Usage</p>
-          </div>
-          <div className="text-center">
-            <div className="text-blue-600 mb-2 text-2xl font-bold">14.5M</div>
-            <p className="text-gray-600">Projected Users by 2029</p>
-          </div>
+
         </div>
 
         {/* Unique Selling Proposition */}

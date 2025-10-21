@@ -78,10 +78,10 @@ export function Footer() {
           <div>
             <h4 className="text-white mb-6 font-semibold">Quick Links</h4>
             <ul className="space-y-3 text-sm">
-              {['Home', 'About', 'Services', 'Portfolio', 'Testimonials'].map((item) => (
+              {['Home', 'About', 'Services', 'Portfolio',].map((item) => (
                 <li key={item}>
                   <button
-                    onClick={() => scrollToSection(item === 'Home' ? 'hero' : item === 'Portfolio' ? 'portfolio' : item === 'Testimonials' ? 'testimonials' : item.toLowerCase())}
+                    onClick={() => scrollToSection(item === 'Home' ? 'hero' : item === 'Portfolio' ? 'portfolio' : item.toLowerCase())}
                     className="text-gray-400 hover:text-blue-400 transition-colors flex items-center group"
                   >
                     <span className="w-0 h-0.5 bg-blue-400 group-hover:w-3 transition-all mr-0 group-hover:mr-2"></span>
@@ -97,10 +97,10 @@ export function Footer() {
             <h4 className="text-white mb-6 font-semibold">Our Services</h4>
             <ul className="space-y-3 text-sm">
               {[
-                'Digital Strategy',
+
                 'Brand Identity',
                 'Social Media',
-                'SEO & SEM',
+
                 'Content Production',
                 'Email Marketing',
               ].map((service) => (
@@ -141,7 +141,7 @@ export function Footer() {
         {/* Bottom Bar */}
         <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
           <p className="text-gray-400 text-sm text-center md:text-left">
-            © {currentYear} Tempo Holdings. All rights reserved.
+            © {currentYear} Tempe Holdings. All rights reserved.
           </p>
           <div className="flex flex-wrap justify-center gap-6 text-sm">
             <button className="text-gray-400 hover:text-blue-400 transition-colors">
