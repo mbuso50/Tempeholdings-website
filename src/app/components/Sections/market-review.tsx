@@ -1,9 +1,10 @@
 "use client";
 
 import { useState, useEffect } from 'react';
-import { Search, Star, TrendingUp, Users, Award, MapPin, Plus, Edit, Trash2, Menu, X } from 'lucide-react';
+import { Search, Star, TrendingUp, Users, Award, MapPin, Plus, Edit, Trash2 } from 'lucide-react';
 import Image from 'next/image';
 import { reviewsAPI, businessesAPI, marketAPI, Review, Business } from '@/lib/api';
+import React from 'react';
 
 export default function MarketReview() {
     const [searchQuery, setSearchQuery] = useState('');
@@ -14,7 +15,7 @@ export default function MarketReview() {
     const [showAddForm, setShowAddForm] = useState(false);
     const [formType, setFormType] = useState<'review' | 'business'>('review');
     const [editingItem, setEditingItem] = useState<Review | Business | null>(null);
-    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
 
     const categories = [
         'All',

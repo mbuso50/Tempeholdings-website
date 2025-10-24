@@ -6,7 +6,7 @@ import { Portfolio } from '../components/Sections/Portfolio';
 import { Contact } from '../components/Sections/Contact';
 import { Footer } from '../components/Sections/Footer';
 import { Toaster } from '../components/common/feedback/sonner';
-
+import React from 'react';
 export default function HomePage() {
     return (
         <div className="min-h-screen bg-white relative">

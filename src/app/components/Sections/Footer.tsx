@@ -1,7 +1,7 @@
 "use client";
 
 import { Mail, Phone, MapPin, ArrowUp } from 'lucide-react';
-
+import React from 'react';
 export function Footer() {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);

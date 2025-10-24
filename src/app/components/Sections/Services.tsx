@@ -18,7 +18,7 @@ import {
   Share2,
   ArrowRight
 } from 'lucide-react';
-
+import React from 'react';
 export function Services() {
   const [activeTab, setActiveTab] = useState('framework');
   const [activeService, setActiveService] = useState(0);
@@ -141,7 +141,6 @@ export function Services() {
     if (element) element.scrollIntoView({ behavior: 'smooth' });
   };
 
-  const currentServices = activeTab === 'framework' ? frameworkServices : marketingServices;
 
   return (
     <section id="services" className="py-24 bg-white relative overflow-hidden">

@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { TrendingUp, Users, Monitor, Video, Star } from 'lucide-react';
 import Image from 'next/image';
-
+import React from 'react';
 export function Portfolio() {
   const [activeFilter, setActiveFilter] = useState('All');
 

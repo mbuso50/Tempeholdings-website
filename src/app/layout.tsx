@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-
+import React from 'react';
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL('https://tempeholdings.co.za'), // Replace with your actual domain
+  metadataBase: new URL('https://tempeholdings.co.za'),
   openGraph: {
     type: "website",
     locale: "en_ZA",
@@ -56,8 +56,8 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Tempe Holdings (Pty) Ltd - Township Marketing Solutions",
     description: "Your gateway to the R900 billion township market. Authentic marketing solutions since 2012.",
-    images: ["/og-image.jpg"], // Same as OpenGraph image
-    creator: "@TempeHoldings", // Replace with your actual Twitter handle
+
+
   },
   robots: {
     index: true,
@@ -71,8 +71,7 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    // You can add Google Search Console verification here
-    // google: "your-google-verification-code",
+
   },
 };
 

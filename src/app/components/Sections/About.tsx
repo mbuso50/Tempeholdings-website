@@ -1,6 +1,6 @@
 import { Users, TrendingUp, Globe, Building, Heart, BarChart3, Users2 } from 'lucide-react';
 import Image from 'next/image';
-
+import React from 'react';
 export function About() {
   const features = [
     { icon: Building, title: 'Years Established', value: 'Since 2012' },

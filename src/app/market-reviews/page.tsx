@@ -4,7 +4,7 @@ import { Header } from '../components/Sections/Header';
 import { Footer } from '../components/Sections/Footer';
 import { Toaster } from '../components/common/feedback/sonner';
 import dynamic from 'next/dynamic';
-
+import React from 'react';
 
 const MarketReview = dynamic(() => import('../components/Sections/market-review'), {
     ssr: false,

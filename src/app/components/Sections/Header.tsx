@@ -3,11 +3,11 @@
 import { useState, useEffect } from 'react';
 import { Menu, X, Home } from 'lucide-react';
 import { useRouter, usePathname } from 'next/navigation';
-
+import React from 'react';
 interface HeaderProps {
-  // Simple customization
-  disabledButtons?: string[]; // ['services', 'work', 'clients', 'about']
-  textColor?: 'light' | 'dark'; // Control text color when not scrolled
+
+  disabledButtons?: string[];
+  textColor?: 'light' | 'dark';
 }
 
 export function Header({
@@ -59,15 +59,7 @@ export function Header({
     setIsMobileMenuOpen(false);
   };
 
-  const getSectionId = (item: string) => {
-    const sectionMap: { [key: string]: string } = {
-      'Work': 'portfolio',
-      'Clients': 'testimonials',
-      'About': 'about',
-      'Services': 'services'
-    };
-    return sectionMap[item] || item.toLowerCase();
-  };
+
 
   const navigationItems = ['About', 'Services', 'Work', 'Clients'].filter(
     item => !disabledButtons.includes(item.toLowerCase())
